@@ -51,6 +51,7 @@ const db = firebase.database();
             $('#out_username').text(user.displayName);
             $('#out_user_email').text(user.email);
             $('out_photo_url').text(user.photoURL);
+            console.log(user.photoURL);
         }
       });
 
