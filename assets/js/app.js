@@ -1,4 +1,4 @@
-console.log(`v. 11:03 AM`);  
+console.log(`v. 12:21 PM`);  
   
 // Initialize Firebase
 var config = {
@@ -47,9 +47,11 @@ const db = firebase.database();
             } else {
                 console.log('not logged in, but this is not the main page');
             }
-        } 
-        console.log(user.displayName);
-        console.log(user.email);
+        } else {
+            $('#out_username').text(user.displayName);
+            $('#out_user_email').text(user.email);
+            $('out_user_photo').attr('src', user.photoURL);
+        }
       });
 
 
