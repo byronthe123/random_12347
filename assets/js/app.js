@@ -45,15 +45,14 @@ const db = firebase.database();
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
 
-      firebase.auth().onAuthStateChanged(user => {
-        if(!user) {
-            alert('Please login');
-        //   window.location = 'https://byronthe123.github.io/random_12347/index.html'; //If User is not logged in, redirect to login page
-        } else {
-            // window.location.assign('https://byronthe123.github.io/random_12347/main.html');
-        }
-      });
-
+      if(window.location.href = 'https://byronthe123.github.io/random_12347/main.html') {
+        firebase.auth().onAuthStateChanged(user => {
+            if(!user) {
+                alert('Please login');
+                window.location = 'https://byronthe123.github.io/random_12347/index.html'; //If User is not logged in, redirect to login page
+            } 
+          });
+      }
 //-----------------------------------------------------------------------------------------------
 
 //Fucntions:
