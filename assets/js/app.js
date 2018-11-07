@@ -1,4 +1,4 @@
-console.log(`v. 12:21 PM`);  
+console.log(`v. 2:05 PM`);  
   
 // Initialize Firebase
 var config = {
@@ -50,8 +50,7 @@ const db = firebase.database();
         } else {
             $('#out_username').text(user.displayName);
             $('#out_user_email').text(user.email);
-            $('out_photo_url').text(user.photoURL);
-            console.log(user.photoURL);
+            $('#img_user_photo').attr('src', user.photoURL);
         }
       });
 

@@ -5,6 +5,15 @@
     background-position: center;
 } */
 
+#img_user_photo {
+    height: 103px;
+    width: 100px;
+}
+
+#row_user_info {
+    border: 5px grey solid;
+}
+
 .far.fa-trash-alt:hover {
     cursor: pointer;
 }
