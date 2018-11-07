@@ -30,20 +30,14 @@ const db = firebase.database();
                 return true;
             }
         }
-        // tosUrl and privacyPolicyUrl accept either url string or a callback
-        // function.
-        // Terms of service url/callback.
-        // tosUrl: '<your-tos-url>',
-        // // Privacy policy url/callback.
-        // privacyPolicyUrl: function() {
-        //   window.location.assign('<your-privacy-policy-url>');
-        // }
     };
 
       // Initialize the FirebaseUI Widget using Firebase.
       var ui = new firebaseui.auth.AuthUI(firebase.auth());
       // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
+      if(window.location.href === 'https://byronthe123.github.io/random_12347/index.html' || window.location.href === 'https://byronthe123.github.io/random_12347/') {
+        ui.start('#firebaseui-auth-container', uiConfig);
+      }
 
       firebase.auth().onAuthStateChanged(user => {
         if(!user) {
@@ -53,18 +47,10 @@ const db = firebase.database();
             } else {
                 console.log('not logged in, but this is not the main page');
             }
-            // window.location = 'https://byronthe123.github.io/random_12347/index.html'; //If User is not logged in, redirect to login page
         } 
       });
 
-    //   if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
-    //     firebase.auth().onAuthStateChanged(user => {
-    //         if(!user) {
-    //             alert('Please login');
-    //             // window.location = 'https://byronthe123.github.io/random_12347/index.html'; //If User is not logged in, redirect to login page
-    //         } 
-    //       });
-    //   }
+
 //-----------------------------------------------------------------------------------------------
 
 //Fucntions:
