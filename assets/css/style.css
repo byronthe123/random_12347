@@ -14,6 +14,10 @@
     border: 5px grey solid;
 }
 
+#signout:hover {
+    cursor: pointer;
+}
+
 .far.fa-trash-alt:hover {
     cursor: pointer;
 }

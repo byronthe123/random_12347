@@ -9,10 +9,9 @@ var config = {
     storageBucket: "train-scheduler2-9b38e.appspot.com",
     messagingSenderId: "676542362753"
 };
+
 firebase.initializeApp(config);
 const db = firebase.database();
-
-//Hide content container prior to user authentication:
 
 //Login/User Authentication: --------------------------------------------------------------------------------------------------
 
@@ -52,6 +51,16 @@ const db = firebase.database();
             $('#out_user_email').text(user.email);
             $('#img_user_photo').attr('src', user.photoURL);
         }
+    });
+
+    //Logout/Signout:
+    $(document).on('click', '#signout', function(){
+        firebase.auth().signOut().then(function() {
+            alert('Signed out successfully');
+            window.location.href = `https://byronthe123.github.io/random_12347/index.html`;
+          }, function(error) {
+            // An error happened.
+          });
     });
 
 //-----------------------------------------------------------------------------------------------
