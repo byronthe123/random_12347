@@ -1,4 +1,4 @@
-console.log(`v. 8:50 AM`);  
+console.log(`v. 11:03 AM`);  
   
 // Initialize Firebase
 var config = {
@@ -49,6 +49,7 @@ const db = firebase.database();
         if(!user) {
             if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
                 alert('Please login');
+                window.location.href = 'https://byronthe123.github.io/random_12347/index.html';
             } else {
                 console.log('not logged in, but this is not the main page');
             }
