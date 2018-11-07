@@ -50,7 +50,7 @@ const db = firebase.database();
         } else {
             $('#out_username').text(user.displayName);
             $('#out_user_email').text(user.email);
-            $('out_user_photo').attr('src', user.photoURL);
+            $('out_photo_url').text(user.photoURL);
         }
       });
 
