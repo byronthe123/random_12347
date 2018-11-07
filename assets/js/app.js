@@ -15,6 +15,8 @@ const db = firebase.database();
 
 //Login/User Authentication: --------------------------------------------------------------------------------------------------
 
+    let signingOut = false;
+
     // FirebaseUI config.
     var uiConfig = {
         signInSuccessUrl: `https://byronthe123.github.io/random_12347/main.html`,
@@ -41,7 +43,9 @@ const db = firebase.database();
     firebase.auth().onAuthStateChanged((user) => {
         if(!user) {
             if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
-                alert('Please login');
+                if(!signingOut) {
+                    alert('Please login');
+                }
                 window.location.href = 'https://byronthe123.github.io/random_12347/index.html';
             }
         } else {
@@ -53,9 +57,11 @@ const db = firebase.database();
 
     //Logout/Signout:
     $(document).on('click', '#signout', function(){
+        signingOut = true;
         firebase.auth().signOut().then(function() {
+            alert('Signed out successfully');
             window.location.href = `https://byronthe123.github.io/random_12347/index.html`;
-            // alert('Signed out successfully');
+            signingOut = false;
           }, function(error) {
             // An error happened.
           });
