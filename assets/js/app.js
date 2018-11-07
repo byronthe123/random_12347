@@ -45,7 +45,7 @@ const db = firebase.database();
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
 
-      if(window.location.href = 'https://byronthe123.github.io/random_12347/main.html') {
+      if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
         firebase.auth().onAuthStateChanged(user => {
             if(!user) {
                 alert('Please login');
