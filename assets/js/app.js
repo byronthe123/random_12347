@@ -16,7 +16,7 @@ const db = firebase.database();
 
 //Login/User Authentication: --------------------------------------------------------------------------------------------------
 
-      // FirebaseUI config.
+    // FirebaseUI config.
     var uiConfig = {
         signInSuccessUrl: `https://byronthe123.github.io/random_12347/main.html`,
         signInOptions: [
@@ -32,14 +32,14 @@ const db = firebase.database();
         }
     };
 
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-      // The start method will wait until the DOM is loaded.
-      if(window.location.href === 'https://byronthe123.github.io/random_12347/index.html' || window.location.href === 'https://byronthe123.github.io/random_12347/') {
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    // The start method will wait until the DOM is loaded.
+    if(window.location.href === 'https://byronthe123.github.io/random_12347/index.html' || window.location.href === 'https://byronthe123.github.io/random_12347/') {
         ui.start('#firebaseui-auth-container', uiConfig);
-      }
+    }
 
-      firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user) => {
         if(!user) {
             if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
                 alert('Please login');
@@ -52,8 +52,7 @@ const db = firebase.database();
             $('#out_user_email').text(user.email);
             $('#img_user_photo').attr('src', user.photoURL);
         }
-      });
-
+    });
 
 //-----------------------------------------------------------------------------------------------
 
@@ -113,8 +112,6 @@ const deleteFromDB = (id) => {
         }
     })
 }
-
-deleteFromDB();
 
 //Validate Train Time:
 const validateFirstTrainTime = (firstTrainTime) => {
