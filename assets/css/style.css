@@ -1,3 +1,10 @@
+/* .jumbotron {
+    background-image: url('../images/train3.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+} */
+
 .far.fa-trash-alt:hover {
     cursor: pointer;
 }

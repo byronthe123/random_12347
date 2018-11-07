@@ -39,7 +39,7 @@ const db = firebase.database();
         ui.start('#firebaseui-auth-container', uiConfig);
       }
 
-      firebase.auth().onAuthStateChanged(user => {
+      firebase.auth().onAuthStateChanged((user) => {
         if(!user) {
             if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
                 alert('Please login');
@@ -48,6 +48,8 @@ const db = firebase.database();
                 console.log('not logged in, but this is not the main page');
             }
         } 
+        console.log(user.displayName);
+        console.log(user.email);
       });
 
 
