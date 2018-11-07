@@ -44,7 +44,7 @@ const db = firebase.database();
         if(!user) {
             if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
                 if(!signingOut) {
-                    alert('Please login');
+                    alert(`Please login - Signing out = ${signingOut}`);
                 }
                 window.location.href = 'https://byronthe123.github.io/random_12347/index.html';
             }
@@ -61,10 +61,10 @@ const db = firebase.database();
         firebase.auth().signOut().then(function() {
             alert('Signed out successfully');
             window.location.href = `https://byronthe123.github.io/random_12347/index.html`;
-          }, function(error) {
+        }, function(error) {
             // An error happened.
-          });
-          signingOut = false;
+        });
+        signingOut = false;
     });
 
 //-----------------------------------------------------------------------------------------------
