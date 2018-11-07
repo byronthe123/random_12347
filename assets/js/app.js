@@ -47,7 +47,11 @@ const db = firebase.database();
 
       firebase.auth().onAuthStateChanged(user => {
         if(!user) {
-            alert('Please login');
+            if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
+                alert('Please login');
+            } else {
+                console.log('not logged in, but this is not the main page');
+            }
             // window.location = 'https://byronthe123.github.io/random_12347/index.html'; //If User is not logged in, redirect to login page
         } 
       });
