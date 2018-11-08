@@ -44,7 +44,7 @@ const db = firebase.database();
         if(!user) {
             if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
                 if(!signingOut) {
-                    alert(`Please login - Signing out = ${signingOut}`);
+                    alert(`Please login to continue.`);
                 }
                 window.location.href = 'https://byronthe123.github.io/random_12347/index.html';
             }
@@ -57,7 +57,6 @@ const db = firebase.database();
 
     //Logout/Signout:
     $(document).on('click', '#signout', function(){
-        signingOut = true;
         firebase.auth().signOut().then(function() {
             signingOut = true;
             alert('Signed out successfully');
