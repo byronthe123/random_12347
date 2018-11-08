@@ -59,6 +59,7 @@ const db = firebase.database();
     $(document).on('click', '#signout', function(){
         signingOut = true;
         firebase.auth().signOut().then(function() {
+            signingOut = true;
             alert('Signed out successfully');
             window.location.href = `https://byronthe123.github.io/random_12347/index.html`;
         }, function(error) {
