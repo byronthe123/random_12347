@@ -1,4 +1,4 @@
-console.log(`v. 9:07 PM`);  
+console.log(`v. 9::20 PM`);  
   
 // Initialize Firebase
 var config = {
@@ -142,7 +142,7 @@ const validateFirstTrainTime = (firstTrainTime, frequency) => {
                         let testTrain = new Train('', '', firstTrainTime, frequency);
                         console.log(testTrain.minTillNexTrain);
                         console.log(typeof(testTrain.minTillNexTrain));
-                        if(testTrain.minTillNexTrain !== NaN) {
+                        if(testTrain.minTillNexTrain >= 0) {
                             return true;
                         }
                     }
