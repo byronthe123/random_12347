@@ -139,13 +139,24 @@ const validateFirstTrainTime = (firstTrainTime) => {
                     if(typeof(parseInt(textArr[i][j])) !== 'number'){
                         return false;
                     } else {
-                        return true;
+                        let testTrain = new Train('', '', firstTrainTime, frequency);
+                        if(testTrain.minTillNexTrain !== NaN) {
+                            return true;
+                        }
                     }
                 }
             } else {
                 return false;
             }
         }
+    } else {
+        return false;
+    }
+}
+
+const validateFrequency = (frequency) => {
+    if(frequency.val() > 0) {
+        return true;
     } else {
         return false;
     }
@@ -177,7 +188,7 @@ $('#btn_submit').on('click', function(e){
     let firstTrainTime = $('#in_first_train_time').val().trim();
     let frequency = $('#in_frequency').val();
 
-    if(validateFirstTrainTime(firstTrainTime)) {
+    if(validateFirstTrainTime(firstTrainTime) && validateFrequency(frequency)){
         //Run rest of program:
         let train = new Train(name, destination, firstTrainTime, frequency);
 
@@ -188,7 +199,11 @@ $('#btn_submit').on('click', function(e){
         readFromDB();
 
     } else {
-        alert(`Invalid time format - please enter all input in the following format: HH:mm.\ Example: 01:23 or 22:45`);
+        if(!validateFirstTrainTime(firstTrainTime)) {
+            alert(`Invalid time format - please enter all input in the following format: HH:mm.\ Example: 01:23 or 22:45`);
+        } else if(!validateFrequency(frequency)) {
+            alert(`Invalid Frequency - must greater than 0`);
+        }
     }
 
 }); 
