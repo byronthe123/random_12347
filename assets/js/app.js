@@ -127,7 +127,7 @@ const deleteFromDB = (id) => {
 }
 
 //Validate Train Time:
-const validateFirstTrainTime = (firstTrainTime) => {
+const validateFirstTrainTime = (firstTrainTime, frequency) => {
     if(firstTrainTime.includes(':')) {
         
         let textArr = firstTrainTime.split(':');
@@ -154,13 +154,13 @@ const validateFirstTrainTime = (firstTrainTime) => {
     }
 }
 
-const validateFrequency = (frequency) => {
-    if(frequency.val() > 0) {
-        return true;
-    } else {
-        return false;
-    }
-}
+// const validateFrequency = (frequency) => {
+//     if(frequency.val() > 0) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
 
 let interval;
 
