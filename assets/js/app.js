@@ -1,4 +1,4 @@
-console.log(`v. 2:05 PM`);  
+console.log(`v. 9:07 PM`);  
   
 // Initialize Firebase
 var config = {
@@ -188,7 +188,7 @@ $('#btn_submit').on('click', function(e){
     let firstTrainTime = $('#in_first_train_time').val().trim();
     let frequency = $('#in_frequency').val();
 
-    if(validateFirstTrainTime(firstTrainTime) && validateFrequency(frequency)){
+    if(validateFirstTrainTime(firstTrainTime, frequency)){
         //Run rest of program:
         let train = new Train(name, destination, firstTrainTime, frequency);
 
@@ -199,13 +199,8 @@ $('#btn_submit').on('click', function(e){
         readFromDB();
 
     } else {
-        if(!validateFirstTrainTime(firstTrainTime)) {
-            alert(`Invalid time format - please enter all input in the following format: HH:mm.\ Example: 01:23 or 22:45`);
-        } else if(!validateFrequency(frequency)) {
-            alert(`Invalid Frequency - must greater than 0`);
-        }
+        alert(`Invalid time format - please enter all input in the following format: HH:mm.\ Example: 01:23 or 22:45`);
     }
-
 }); 
 
 $(document).on('click', '.fa-trash-alt', function() {
