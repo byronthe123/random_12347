@@ -140,6 +140,8 @@ const validateFirstTrainTime = (firstTrainTime, frequency) => {
                         return false;
                     } else {
                         let testTrain = new Train('', '', firstTrainTime, frequency);
+                        console.log(testTrain.minTillNexTrain);
+                        console.log(typeof(testTrain.minTillNexTrain));
                         if(testTrain.minTillNexTrain !== NaN) {
                             return true;
                         }
