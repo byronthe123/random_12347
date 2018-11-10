@@ -201,7 +201,7 @@ $('#btn_submit').on('click', function(e){
         readFromDB();
 
     } else {
-        alert(`Invalid time format - please enter all input in the following format: HH:mm.\ Example: 01:23 or 22:45`);
+        alert(`Invalid time format - please enter all input in the following format: HH:mm.\nExample: 01:23 or 22:45\nTime values cannot exceed 24:00.`);
     }
 }); 
 
