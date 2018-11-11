@@ -252,5 +252,5 @@ $(document).on('click', '.fa-sync-alt', function() {
     console.log(manuallyUpdate(id));
     let parent2 = document.getElementById(id).parentNode;
     console.log('parent2 ' + parent2);
-    // $(this).parent().prevObject[0].replaceWith(manuallyUpdate(id));
+    parent2.replaceWith(manuallyUpdate(id));
 });
