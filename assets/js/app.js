@@ -1,4 +1,4 @@
-console.log(`v. 11/11/18 10:34 AM`);  
+console.log(`v. 11/11/18 1:51 AM`);  
   
 // Initialize Firebase
 var config = {
@@ -149,18 +149,7 @@ const manuallyUpdate = (id) => {
                 <td class="far fa-trash-alt" id='${updatedTrain.id}'></td>
             </tr> 
         `);
-        let updatedTrTest = $(`
-        <tr> 
-            <th scope="row">Test</th>
-            <td>Test</td>
-            <td>${updatedTrain.frequency}</td>
-            <td><span class='transition'>Test</span></td>
-            <td><span class='transition'>$Test</span></td>
-            <td class="fas fa-sync-alt" id='$Test'></td>
-            <td class="far fa-trash-alt" id='$Test'></td>
-        </tr> 
-    `);
-        updatedTrainToReturn = updatedTrTest;
+        updatedTrainToReturn = updatedTr;
         }
     })
     return updatedTrainToReturn;
