@@ -149,7 +149,7 @@ const manuallyUpdate = (id) => {
                 <td class="far fa-trash-alt" id='${updatedTrain.id}'></td>
             </tr> 
         `);
-        updatedTrainToReturn = updatedTrain;
+        updatedTrainToReturn = updatedTr;
         }
     })
     return updatedTrainToReturn;
