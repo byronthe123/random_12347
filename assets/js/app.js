@@ -248,5 +248,5 @@ $(document).on('click', '.fa-sync-alt', function() {
     console.log($(this).parent().prevObject[0]);
     let id = ($(this).parent().prevObject[0].id);
     console.log(manuallyUpdate(id));
-    // $(this).parent().prevObject[0].replaceWith(manuallyUpdate(id));
+    $(this).parent().prevObject[0].replaceWith(manuallyUpdate(id));
 });
