@@ -149,7 +149,18 @@ const manuallyUpdate = (id) => {
                 <td class="far fa-trash-alt" id='${updatedTrain.id}'></td>
             </tr> 
         `);
-        updatedTrainToReturn = updatedTr;
+        let updatedTrTest = $(`
+        <tr> 
+            <th scope="row">Test</th>
+            <td>Test</td>
+            <td>${updatedTrain.frequency}</td>
+            <td><span class='transition'>Test</span></td>
+            <td><span class='transition'>$Test</span></td>
+            <td class="fas fa-sync-alt" id='$Test'></td>
+            <td class="far fa-trash-alt" id='$Test'></td>
+        </tr> 
+    `);
+        updatedTrainToReturn = updatedTrTest;
         }
     })
     return updatedTrainToReturn;
