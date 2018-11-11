@@ -148,7 +148,7 @@ const manuallyUpdate = (id) => {
                 <td class="far fa-trash-alt" id='${updatedTrain.id}'></td>
             </tr> 
         `);
-         $(this).parent().replaceWith(updatedTr);
+         return updatedTr;
         }
     })
 }
@@ -243,5 +243,5 @@ $(document).on('click', '.fa-trash-alt', function() {
 $(document).on('click', '.fa-sync-alt', function() {
     alert('update clicked');
     let id = ($(this).parent().prevObject[0].id);
-    manuallyUpdate(id);
+    $(this).parent().replaceWith(manuallyUpdate(id));
 });
