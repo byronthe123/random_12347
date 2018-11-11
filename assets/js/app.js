@@ -130,6 +130,7 @@ const deleteFromDB = (id) => {
 //Manually Update Train:
 const manuallyUpdate = (id) => {
     //https://stackoverflow.com/questions/40441625/firebase-remove-node-based-on-child-value
+    let updatedTrainToReturn = null;
     db.ref().on('child_added', (snapshot) => {
         let sv = snapshot.val();
         // let train = objFromDBSnapshotVal(sv);
@@ -148,9 +149,10 @@ const manuallyUpdate = (id) => {
                 <td class="far fa-trash-alt" id='${updatedTrain.id}'></td>
             </tr> 
         `);
-         return updatedTr;
+        updatedTrainToReturn = updatedTrain;
         }
     })
+    return updatedTrainToReturn;
 }
 
 
