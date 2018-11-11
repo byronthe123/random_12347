@@ -30,7 +30,7 @@
             </div>
             <div class="card">
                 <div class="card-header bg-secondary text-white">
-                    Current Train Schedule
+                    Current Train Schedule (Updates Automatically Every 30 seconds)
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -41,6 +41,7 @@
                                 <th scope="col">Frequence (min)</th>
                                 <th scope="col">Next Arrival</th>
                                 <th scope="col">Minutes Away</th>
+                                <th scope="col">Update</th>
                                 <th scope="col">Remove</th>
                             </tr>
                         </thead>
@@ -70,7 +71,7 @@
                         </div>
                         <div class="form-group">
                             <label for="in_start_date">Frequency:</label>
-                            <input type="number" class="form-control" id="in_frequency">
+                            <input type="number" class="form-control" id="in_frequency" min='1'>
                         </div>
                         <button type="submit" class="btn btn-primary" id='btn_submit'>Submit</button>
                     </form>

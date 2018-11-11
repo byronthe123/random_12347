@@ -90,6 +90,7 @@ const appendTrainHTML = (train) => {
             <td>${train.frequency}</td>
             <td><span class='transition'>${train.nextArrival}</span></td>
             <td><span class='transition'>${train.minTillNexTrain}</span></td>
+            <td class="fas fa-sync-alt" id='${train.id}'></td>
             <td class="far fa-trash-alt" id='${train.id}'></td>
         </tr> 
     `);
@@ -126,6 +127,33 @@ const deleteFromDB = (id) => {
     })
 }
 
+//Manually Update Train:
+const manuallyUpdate = (id) => {
+    //https://stackoverflow.com/questions/40441625/firebase-remove-node-based-on-child-value
+    db.ref().on('child_added', (snapshot) => {
+        let sv = snapshot.val();
+        // let train = objFromDBSnapshotVal(sv);
+        if(sv.db_train.id === id) {
+            // console.log(`ID: ${sv.db_train.id} detected`);
+            // let remove = db.ref(snapshot.Ce.path.n[0]);
+            let updatedTrain = new Train(sv.db_train.name, sv.db_train.destination, sv.db_train.firstTrainTime, sv.db_train.frequency);
+            let updatedTr = $(`
+            <tr> 
+                <th scope="row">${updatedTrain.name}</th>
+                <td>${updatedTrain.destination}</td>
+                <td>${updatedTrain.frequency}</td>
+                <td><span class='transition'>${updatedTrain.nextArrival}</span></td>
+                <td><span class='transition'>${updatedTrain.minTillNexTrain}</span></td>
+                <td class="fas fa-sync-alt" id='${updatedTrain.id}'></td>
+                <td class="far fa-trash-alt" id='${updatedTrain.id}'></td>
+            </tr> 
+        `);
+         $(this).parent().replaceWith(updatedTr);
+        }
+    })
+}
+
+
 //Validate Train Time:
 const validateFirstTrainTime = (firstTrainTime, frequency) => {
     if(firstTrainTime.includes(':')) {
@@ -156,19 +184,12 @@ const validateFirstTrainTime = (firstTrainTime, frequency) => {
     }
 }
 
-// const validateFrequency = (frequency) => {
-//     if(frequency.val() > 0) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
 
 let interval;
 
 const runTimer = () => {
     clearInterval(interval);
-    interval = setInterval(readFromDB, 10000);
+    interval = setInterval(readFromDB, 30000);
 }
 
 const timer = () => {
@@ -190,19 +211,24 @@ $('#btn_submit').on('click', function(e){
     let firstTrainTime = $('#in_first_train_time').val().trim();
     let frequency = $('#in_frequency').val();
 
-    if(validateFirstTrainTime(firstTrainTime, frequency)){
-        //Run rest of program:
-        let train = new Train(name, destination, firstTrainTime, frequency);
-
-        db.ref().push({
-            db_train: train
-        });
-
-        readFromDB();
-
+    if(frequency >= 1) {
+        if(validateFirstTrainTime(firstTrainTime, frequency)){
+            //Run rest of program:
+            let train = new Train(name, destination, firstTrainTime, frequency);
+    
+            db.ref().push({
+                db_train: train
+            });
+    
+            readFromDB();
+    
+        } else {
+            alert(`Invalid time format - please enter all input in the following format: HH:mm.\nExample: 01:23 or 22:45\nTime values cannot exceed 24:00.`);
+        }
     } else {
-        alert(`Invalid time format - please enter all input in the following format: HH:mm.\nExample: 01:23 or 22:45\nTime values cannot exceed 24:00.`);
+        alert('Invalid frequency.');
     }
+
 }); 
 
 $(document).on('click', '.fa-trash-alt', function() {
@@ -211,4 +237,11 @@ $(document).on('click', '.fa-trash-alt', function() {
     deleteFromDB(id);
     // $(this).parent().remove();
     readFromDB();
+});
+
+//Click Update Button:
+$(document).on('click', '.fa-sync-alt', function() {
+    alert('update clicked');
+    let id = ($(this).parent().prevObject[0].id);
+    manuallyUpdate(id);
 });

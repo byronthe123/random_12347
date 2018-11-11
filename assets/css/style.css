@@ -1,9 +1,15 @@
-/* .jumbotron {
-    background-image: url('../images/train3.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-} */
+
+* {
+    /* border: 1px red solid; */
+}
+
+.index_body {
+    /* background: url('../images/train3.png') no-repeat center bottom fixed; 
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain; */
+}
 
 #img_user_photo {
     height: 103px;
