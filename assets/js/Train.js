@@ -13,7 +13,7 @@ class Train {
         let str2 = '';
         str1 += `${this.name.charAt(0)}${this.name.charAt(this.name.length-1)}`;
         str2 += `${this.destination.charAt(0)}${this.destination.charAt(this.destination.length -1)}`;
-        let id = `${str1}-${str2}-${Math.floor(Math.random * 1000)}}`
+        let id = `${str1}-${str2}`
         return id;
     }
 
@@ -32,6 +32,6 @@ class Train {
         let minTillNexTrain = this.frequency - remainder;
         let nextTrainTime = moment().add(minTillNexTrain, 'minutes');
         nextTrainTime = nextTrainTime.format('hh:mm a');
-        return [nextTrainTime, minTillNexTrain];
+        return [nextTrainTime, minTillNexTrain, firstTrainTimeConverted];
     }
 }
