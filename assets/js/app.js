@@ -250,6 +250,7 @@ $(document).on('click', '.fa-sync-alt', function() {
     let parent = $(id).parent();
     console.log(parent);
     console.log(manuallyUpdate(id));
-    // document.getElementById('df-te').parentNode;
+    let parent2 = document.getElementById(id).parentNode;
+    console.log('parent2 ' + parent2);
     // $(this).parent().prevObject[0].replaceWith(manuallyUpdate(id));
 });
