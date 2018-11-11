@@ -246,7 +246,10 @@ $(document).on('click', '.fa-sync-alt', function() {
     alert('update clicked');
     console.log($(this).parent());
     console.log($(this).parent().prevObject[0]);
-    let id = ($(this).parent().parent());
+    let id = ($(this).parent().prevObject[0].id);
+    let parent = $(id).parent();
+    console.log(parent);
     console.log(manuallyUpdate(id));
+    // document.getElementById('df-te').parentNode;
     // $(this).parent().prevObject[0].replaceWith(manuallyUpdate(id));
 });
