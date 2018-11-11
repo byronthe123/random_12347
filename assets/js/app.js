@@ -1,4 +1,4 @@
-console.log(`v. 9::20 PM`);  
+console.log(`v. 11/11/18 10:34 AM`);  
   
 // Initialize Firebase
 var config = {
@@ -243,5 +243,5 @@ $(document).on('click', '.fa-trash-alt', function() {
 $(document).on('click', '.fa-sync-alt', function() {
     alert('update clicked');
     let id = ($(this).parent().prevObject[0].id);
-    $(this).parent().replaceWith(manuallyUpdate(id));
+    $(this).parent().prevObject[0].replaceWith(manuallyUpdate(id));
 });
